@@ -4,10 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 public class PointTest {
     @Test
-    public void test1() {
+    public void test1() {j
         List<Point> points =
                 Arrays.asList(
                         new Point(2, 0),
