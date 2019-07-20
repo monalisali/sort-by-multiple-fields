@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 public class PointTest {
     @Test
-    public void test1() {j
+    public void test1() {
         List<Point> points =
                 Arrays.asList(
                         new Point(2, 0),
