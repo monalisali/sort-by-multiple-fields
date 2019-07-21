@@ -1,9 +1,10 @@
 package com.github.hcsp.polymorphism;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
-public class Point implements Comparable<Point>{
+public class Point {
 
     private final int x;
     private final int y;
@@ -52,12 +53,7 @@ public class Point implements Comparable<Point>{
 
     // 按照先x再y，从小到大的顺序排序
     // 例如排序后的结果应该是 (-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)
-    public static List<Point> sort(List<Point> points) {
-        // 不需要自己去 比较，利用已有数据类型可以快速完成排序，只需实现好 Point类的 compareTo方法
-        TreeSet<Point> tree = new TreeSet<>(points);
-        // 原来不用记住很多API也能快速解决问题啊，真香!
-        return Collections.list(Collections.enumeration(tree));
-    }
+    public static List<Point> sort(List<Point> points) {}
 
     public static void main(String[] args) throws IOException {
         List<Point> points =
@@ -68,14 +64,5 @@ public class Point implements Comparable<Point>{
                         new Point(2, 1),
                         new Point(2, -1));
         System.out.println(Point.sort(points));
-    }
-
-    @Override
-    public int compareTo(Point o) {
-        if(((Integer) x).compareTo(o.x) == 0){
-            return ((Integer) y).compareTo(o.y);
-        }else {
-           return ((Integer) x).compareTo(o.x);
-        }
     }
 }
