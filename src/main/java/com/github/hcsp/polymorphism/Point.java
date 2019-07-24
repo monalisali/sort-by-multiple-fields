@@ -2,9 +2,10 @@ package com.github.hcsp.polymorphism;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-public class Point {
+public class Point implements Comparable<Point> {
 
     private final int x;
     private final int y;
@@ -53,7 +54,11 @@ public class Point {
 
     // 按照先x再y，从小到大的顺序排序
     // 例如排序后的结果应该是 (-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)
-    public static List<Point> sort(List<Point> points) {}
+    public static List<Point> sort(List<Point> points) {
+        Collections.sort(points);//要实现，就需要用到Comparable这个接口进行排序
+        return points;//传进一个有序的列表，排序，返回。
+
+    }
 
     public static void main(String[] args) throws IOException {
         List<Point> points =
@@ -64,5 +69,22 @@ public class Point {
                         new Point(2, 1),
                         new Point(2, -1));
         System.out.println(Point.sort(points));
+    }
+//按照X排序，从小到大
+    @Override
+    public int compareTo(Point that) {
+        //比较this 和 that
+        //return this.x - that.x; 可能会发生溢出，所以错误。
+        if (this.x<that.x){
+            return -1;//只要是负数就可以
+        }else if (this.x>that.x){
+            return 1;
+        }
+        //return 0;说明this.x= that.x。需要按照y
+        if (this.y<that.y){
+            return -1;//只要是负数就可以
+        }else if (this.y>that.y){
+            return 1;
+        }return 0;
     }
 }
