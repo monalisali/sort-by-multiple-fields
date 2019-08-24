@@ -2,14 +2,12 @@ package com.github.hcsp.polymorphism;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-public class Point implements Comparable<Point> {
+public class Point {
 
     private final int x;
     private final int y;
-
     // 代表笛卡尔坐标系中的一个点
     public Point(int x, int y) {
         this.x = x;
@@ -53,21 +51,9 @@ public class Point implements Comparable<Point> {
         return String.format("(%d,%d)", x, y);
     }
 
-    @Override
-    public int compareTo(Point p) {
-        int compareX = Integer.compare(getX(), p.getX());
-        if (compareX == 0) {
-            return Integer.compare(getY(), p.getY());
-        }
-        return compareX;
-    }
-
     // 按照先x再y，从小到大的顺序排序
     // 例如排序后的结果应该是 (-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)
-    public static List<Point> sort(List<Point> points) {
-        Collections.sort(points);
-        return points;
-    }
+    public static List<Point> sort(List<Point> points) {}
 
     public static void main(String[] args) throws IOException {
         List<Point> points =
