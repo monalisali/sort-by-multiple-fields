@@ -53,7 +53,10 @@ public class Point {
 
     // 按照先x再y，从小到大的顺序排序
     // 例如排序后的结果应该是 (-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)
-    public static List<Point> sort(List<Point> points) {}
+    public static List<Point> sort(List<Point> points) {
+        points.sort((l,r)->Integer.compare(l.x,r.x)==0?Integer.compare(l.y,r.y):Integer.compare(l.x,r.x));
+        return points;
+    }
 
     public static void main(String[] args) throws IOException {
         List<Point> points =
