@@ -1,8 +1,5 @@
 package com.github.hcsp.polymorphism;
 
-
-import com.sun.org.apache.xpath.internal.objects.XObject;
-
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Arrays;
