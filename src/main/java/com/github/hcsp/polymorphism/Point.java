@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class Point {
+public class Point implements Comparable<Point> {
 
     private final int x;
     private final int y;
@@ -47,13 +47,33 @@ public class Point {
     }
 
     @Override
+    public int compareTo(Point o) {
+        if (this.x < o.x) {
+            return -1;
+        }
+        if (this.x > o.x) {
+            return 1;
+        }
+        if (this.y < o.y) {
+            return -1;
+        }
+        if (this.y > o.y) {
+            return 1;
+        }
+        return 0;
+    }
+
+    @Override
     public String toString() {
         return String.format("(%d,%d)", x, y);
     }
 
     // 按照先x再y，从小到大的顺序排序
     // 例如排序后的结果应该是 (-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)
-    public static List<Point> sort(List<Point> points) {}
+    public static List<Point> sort(List<Point> points) {
+        points.sort(Point::compareTo);
+        return points;
+    }
 
     public static void main(String[] args) throws IOException {
         List<Point> points =
