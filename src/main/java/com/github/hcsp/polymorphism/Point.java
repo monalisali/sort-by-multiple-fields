@@ -81,6 +81,7 @@ public class Point implements Comparable{
                 return (y < ((Point) o).y) ? -1 : ((y == ((Point) o).y) ? 0 : 1);
             }
         }
+
         return 0;
     }
 }
