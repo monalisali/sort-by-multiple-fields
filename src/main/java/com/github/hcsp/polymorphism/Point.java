@@ -1,10 +1,7 @@
 package com.github.hcsp.polymorphism;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Point implements Comparable<Point>{
 
@@ -56,7 +53,38 @@ public class Point implements Comparable<Point>{
     // 按照先x再y，从小到大的顺序排序
     // 例如排序后的结果应该是 (-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)
     public static List<Point> sort(List<Point> points) {
+        //1.原始写法
         Collections.sort(points);
+
+        //2. 用lambda简化
+//        Collections.sort(points, new Comparator<Point>() {
+//            @Override
+//            public int compare(Point o1, Point o2) {
+//                if(o1.x < o2.x)
+//                {
+//                    return  -1;
+//                }
+//                else if(o1.x > o2.x)
+//                {
+//                    return 1;
+//                }
+//
+//                if(o1.y < o2.y)
+//                {
+//                    return -1;
+//                }
+//                else if(o1.y > o2.y)
+//                {
+//                    return 1;
+//                }
+//                else {
+//                    return 0;
+//                }
+//            }
+//        });
+
+        //3. 用method reference简化
+//        Collections.sort(points, Comparator.comparing(Point::getX).thenComparing(Point::getY));
         return points;
     }
 
